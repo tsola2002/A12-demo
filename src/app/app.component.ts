@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { interval,  Subscription } from 'rxjs';
+import { map, merge } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'A12-Demo-Apps';
+
+
 }
