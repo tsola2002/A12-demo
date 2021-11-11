@@ -1,23 +1,37 @@
 <div class="grid">
   <div class="col-12">
-    <img width="40" alt="Angular Logo"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+    <p-messages severity="info">
+      <ng-template pTemplate>
+        <img width="40" alt="Angular Logo"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+        <div class="p-text-uppercase">Working withRxjs operators using instance methods.</div>
+      </ng-template>
+    </p-messages>
   </div>
-<div class="buttons-container">
-  
-</div>
-  <div class="col-6">
-    <div class="input-stream-item" *ngFor="let item of inputStreamData">
+
+  <div class="col-6"><button [disabled]="!!subscription" pButton type="button" class="p-button-raised p-button-success p-m-2" (click)="startStream()">Start Stream</button></div>
+  <div class="col-6"><button [disabled]="!subscription" pButton type="button" class="p-button-raised p-button-danger p-m-2" (click)="stopStream()">Stop Stream</button></div>
+
+  <div class="col-3 input-stream-item">
+    <div class="item" *ngFor="let item of inputStreamData">
       {{ item }}
     </div>
   </div>
 
-  <div class="col-6">
-    <div class="input-stream-item" *ngFor="let item of inputStreamData">
+  <div class="col-3 input-stream-item">
+    <div class="item" *ngFor="let item of cartoonStreamData">
       {{ item }}
     </div>
   </div>
+
+  <div class="col-3 output-stream-item">
+    <div class="item" *ngFor="let item of outputStreamData">
+      {{ item | uppercase }}
+    </div>
+  </div>
+
 </div>
+
 
 
 <router-outlet></router-outlet>

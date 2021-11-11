@@ -1,0 +1,13 @@
+.input-stream-item,
+.output-stream-item {
+    background-color: #333;
+    min-height: 200px;
+
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.item {
+    color:aquamarine;
+    font-family: 'Courier New', Courier, monospace;
+}
