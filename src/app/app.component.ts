@@ -20,13 +20,13 @@ export class AppComponent {
     // interval Emits numbers in sequence based on provided timeframe
     const streamSource = interval(2000);
 
-    // const cartoonStreamSource = interval(1000)
-    //   // pipe chains operators together
-    //   .pipe(
-    //     map(output => output % this.cartoonStreamData.length),
-    //     // This makes sure we can always get an item from the inputStreamData array using the number as an index
-    //     map(index => this.cartoonStreamData[index]),
-    // )
+    const cartoonStreamSource = interval(1000)
+      // pipe chains operators together
+      .pipe(
+        map(output => output % this.cartoonStreamData.length),
+        // This makes sure we can always get an item from the inputStreamData array using the number as an index
+        map(index => this.cartoonStreamData[index]),
+    )
     
     this.subscription = streamSource
       // pipe chains operators together
@@ -34,7 +34,8 @@ export class AppComponent {
         map(output => output % this.inputStreamData.length),
         //  fetch an element from the array for each of the stream's outputs
         map(index => this.inputStreamData[index]),
-       // merge(cartoonStreamSource)
+        // we use merge (instance) method to combine the two streams and add an element from the respective stream data array when the streams emit a value.
+        merge(cartoonStreamSource)
     )
       // this is how you extract the data from the observables
       .subscribe(element => {
